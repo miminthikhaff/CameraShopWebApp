@@ -7,7 +7,7 @@ function App() {
     <>
       <Header />
       <main>
-        <h1>Welcome to LenseMIMI</h1>
+        <h1>Welcome to PixelLense</h1>
       </main>
       <Footer />
     </>
