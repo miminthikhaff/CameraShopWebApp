@@ -38,42 +38,44 @@ const ProductScreen = () => {
           </ListGroup>
         </Col>
         <Col md={3}>
-        <Card>
-          <ListGroup variant='flush'>
-            <ListGroup.Item>
-              <Row>
-                <Col>Price:</Col>
-                <Col>
-                  <strong>${product.price}</strong>
-                </Col>
-              </Row>
-            </ListGroup.Item>
+          <Card>
+            <ListGroup variant='flush'>
+              <ListGroup.Item>
+                <Row>
+                  <Col>Price:</Col>
+                  <Col>
+                    <strong>${product.price}</strong>
+                  </Col>
+                </Row>
+              </ListGroup.Item>
 
-            <ListGroup.Item>
-              <Row>
-                <Col>Status:</Col>
-                <Col>
-                  {product.countInStock > 0 ? (
-                    <span className='text-success'>In Stock</span>
-                  ) : (
-                    <span className='text-danger'>Out of Stock</span>
-                  )}
-                </Col>
-              </Row>
-            </ListGroup.Item>
+              <ListGroup.Item>
+                <Row>
+                  <Col>Status:</Col>
+                  <Col>
+                    {product.countInStock > 0 ? (
+                      <span className='text-success'>In Stock</span>
+                    ) : (
+                      <span className='text-danger'>Out of Stock</span>
+                    )}
+                  </Col>
+                </Row>
+              </ListGroup.Item>
 
-            <ListGroup.Item>
-              <Button
-                className='btn-block'
-                type='button'
-                disabled={product.countInStock === 0}
-              >
-                Add to Cart
-              </Button>
-            </ListGroup.Item>
-          </ListGroup>
-
-        </Card>
+              <ListGroup.Item>
+                <div className="d-flex justify-content-center">
+                  <Button
+                    className='btn-block align-items-center'
+                    type='button'
+                    disabled={product.countInStock === 0}
+                    style={{ backgroundColor: 'black', color: 'white', border: 'black' }}
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
         </Col>
       </Row>
     </>
