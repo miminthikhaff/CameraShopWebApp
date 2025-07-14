@@ -1,3 +1,21 @@
+/**
+ * An array of product objects representing the available products in the shop.
+ * Each product contains details such as id, name, image, description, brand, category, price, stock count, rating, and number of reviews.
+ *
+ * @typedef {Object} Product
+ * @property {string} _id - Unique identifier for the product.
+ * @property {string} name - Name of the product.
+ * @property {string} image - Path to the product image.
+ * @property {string} description - Description of the product.
+ * @property {string} brand - Brand of the product.
+ * @property {string} category - Category of the product.
+ * @property {number} price - Price of the product.
+ * @property {number} countInStock - Number of items available in stock.
+ * @property {number} rating - Average rating of the product.
+ * @property {number} numReviews - Number of reviews for the product.
+ *
+ * @type {Product[]}
+ */
 const products = [
   {
     _id: '1',
@@ -79,4 +97,5 @@ const products = [
   },
 ]
 
-module export products
+// Export the products array so it can be imported and used in other files
+module.exports = products
