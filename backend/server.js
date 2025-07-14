@@ -6,9 +6,12 @@
 
 // Import the Express framework.
 const express = require('express');
+// Import the products data from the products.js file.
+const products = require('./data/products');
 
 // Create an Express application instance.
-const app = express();  
+const app = express();
+
 
 /**
  * Defines a GET route for the root URL ('/').
@@ -20,10 +23,16 @@ const app = express();
  */
 app.get('/', (req, res) => {
     // Send a simple response when the root URL is accessed.
-  res.send('API is running...');
+    res.send('API is running...');
 });
 app.get('/api/products', (req, res) => {
-
+    // Send the products data as a JSON response when the '/api/products' URL is accessed.
+    res.json(products);
+});
+app.get('/api/products/id', (req, res) => {
+    // Send the products data as a JSON response when the '/api/products' URL is accessed.
+    const product = products.find(p => p._id === req.params.id);
+    res.json(product);
 });
 
 
