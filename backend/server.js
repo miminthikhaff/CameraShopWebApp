@@ -29,8 +29,8 @@ app.get('/api/products', (req, res) => {
     // Send the products data as a JSON response when the '/api/products' URL is accessed.
     res.json(products);
 });
-app.get('/api/products/id', (req, res) => {
-    // Send the products data as a JSON response when the '/api/products' URL is accessed.
+app.get('/api/products/:id', (req, res) => {
+    // Send the product data as a JSON response when the '/api/products/:id' URL is accessed.
     const product = products.find(p => p._id === req.params.id);
     res.json(product);
 });
