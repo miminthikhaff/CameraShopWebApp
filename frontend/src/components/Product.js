@@ -4,6 +4,13 @@ import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 
 const Product = ({ product }) => {
+    // Limit product name length for consistent card alignment
+    const maxNameLength = 40;
+    const displayName =
+        product.name.length > maxNameLength
+            ? product.name.substring(0, maxNameLength - 3) + '...'
+            : product.name;
+
     return (
         <Card className="my-3 p-3 rounded">
             <Link to={`/product/${product._id}`}>
@@ -13,7 +20,9 @@ const Product = ({ product }) => {
             <Card.Body>
                 <Link to={`/product/${product._id}`}>
                     <Card.Title as="div">
-                        <strong style={{ color: 'black' }}>{product.name}</strong>
+                        <strong style={{ color: 'black', minHeight: '3em', display: 'block' }}>
+                            {displayName}
+                        </strong>
                     </Card.Title>
                 </Link>
 
