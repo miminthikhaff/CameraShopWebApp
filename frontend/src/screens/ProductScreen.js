@@ -1,17 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState,  } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
 import Rating from '../components/Rating'
-import products from '../products'
+import axios from 'axios'
+
 
 const ProductScreen = () => {
-  const { id } = useParams()
+  const { id } = useParams() // ✅ get the product ID from the URL
+  const [product, setProduct] = useState({})
 
-  const product = products.find(p => p._id === id)
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const { data } = await axios.get(`/api/products/${id}`) // ✅ use id here
+      setProduct(data)
+    }
 
-  if (!product) {
-    return <div>Product not found</div>
-  }
+    fetchProduct()
+  }, [id]) // ✅ include id as dependency just in case
+    
+    // Empty dependency array means this effect runs once when the component mounts
+    // If you want to use the static products array, you can comment out the above useEffect and use the static import instead
+    // setProducts(products) // Uncomment this line if you want to use the static products array
+    // setProducts(products) // Uncomment this line if you want to use the static products array
+    // setProducts(products) // Uncomment this line if you want to use the static products array                
+
+    
+
 
   return (
     <>
